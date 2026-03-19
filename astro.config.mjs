@@ -32,27 +32,20 @@ import mdx from "@astrojs/mdx";
 import rehypeEmailProtection from "./src/plugins/rehype-email-protection.mjs";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.mjs";
 import rehypeFigure from "./src/plugins/rehype-figure.mjs";
-import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
 
 	base: "/",
 	trailingSlash: "always",
-	
-	output: 'server', // 或 'hybrid'
-	adapter: cloudflare({
-		imageService: 'cloudflare' // 使用Cloudflare图片服务
-	}),
-    
+
 	// 图像优化配置
 	image: {
 		// 全局响应式布局
 		experimentalLayout: "constrained",
 	},
 	
-    
 
 
 	integrations: [
@@ -272,4 +265,3 @@ export default defineConfig({
 		},
 	},
 });
-
